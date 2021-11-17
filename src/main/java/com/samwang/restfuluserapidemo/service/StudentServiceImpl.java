@@ -2,6 +2,7 @@ package com.samwang.restfuluserapidemo.service;
 
 import com.samwang.restfuluserapidemo.entity.Student;
 import com.samwang.restfuluserapidemo.repository.StudentRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +14,14 @@ public class StudentServiceImpl implements StudentService {
 
   @Override
   public Student findById(Integer studentId) {
-    Student student = studentRepository.findById(studentId).orElse(null);
-
-    return student;
+    return studentRepository.findById(studentId).orElse(null);
   }
 
   @Override
-  public String creatStudent(Student student) {
-    studentRepository.save(student);
+  public Student creatStudent(Student student) {
+    studentRepository.saveAndFlush(student);
 
-    return "學生：" + student.getName() + " 已成功新增 ,ID: " + student.getId();
+    return student;
   }
 
   @Override
@@ -46,5 +45,11 @@ public class StudentServiceImpl implements StudentService {
     studentRepository.deleteById(studentId);
 
     return "學生：" + student.getName() + " 已完成刪除";
+  }
+
+  @Override
+  public List<Student> findAll() {
+    List<Student> list = studentRepository.findAll();
+  return list;
   }
 }

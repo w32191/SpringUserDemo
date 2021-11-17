@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>顯示</title>
+</head>
+<body>
+<h1>顯示資料</h1>
+<p th:text="'ID：' + ${student.id}"></p>
+<p th:text="'Name：' + ${student.name}"></p>
+<p th:text="'Email Address：' + ${student.email_address}"></p>
+<p th:text="'Birthday：'+ ${student.birthday}"></p>
+<p></p>
+</body>
+</html>

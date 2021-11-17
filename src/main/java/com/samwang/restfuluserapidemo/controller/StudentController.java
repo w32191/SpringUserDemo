@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class StudentController {
 
@@ -23,7 +24,7 @@ public class StudentController {
   }
 
   @PostMapping("/students")
-  public String create(@RequestBody Student student) {
+  public Student create(@RequestBody Student student) {
     return studentService.creatStudent(student);
   }
 
